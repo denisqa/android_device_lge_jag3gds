@@ -91,14 +91,14 @@ PRODUCT_COPY_FILES += \
     device/lge/jagnm/prebuilt/etc/nfc-nci.conf:system/etc/nfc-nci.conf \
     device/lge/jagnm/prebuilt/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
     device/lge/jagnm/prebuilt/etc/nfcee_access.xml:system/etc/nfcee_access.xml \
-    device/lge/jagnm/prebuilt/etc/quipc.conf:system/etc/quipc.conf \
+    device/lge/jagnm/prebuilt/etc/quipc.conf:system/etc/quipc.conf 
 #    device/lge/jagnm/prebuilt/etc/init.d/10nfc_checker:system/etc/init.d/10nfc_checker \
 #    device/lge/jagnm/prebuilt/etc/init.d/11keys_checker:system/etc/init.d/11keys_checker
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
+    device/lge/jagnm/rootdir/fstab_f2fs.jagnm:root/fstab_f2fs.jagnm \
     device/lge/jagnm/rootdir/fstab.jagnm:root/fstab.jagnm \
-#   device/lge/jagnm/rootdir/fstab_f2fs.jagnm:root/fstab_f2fs.jagnm \
     device/lge/jagnm/rootdir/init.class_main.sh:root/init.class_main.sh \
     device/lge/jagnm/rootdir/init.lge.early.rc:root/init.lge.early.rc \
     device/lge/jagnm/rootdir/init.lge.rc:root/init.lge.rc \
@@ -121,7 +121,8 @@ PRODUCT_COPY_FILES += \
     device/lge/jagnm/rootdir/init.zetaw.usb.sh:root/init.zetaw.usb.sh \
     device/lge/jagnm/rootdir/ueventd.jagnm.rc:root/ueventd.jagnm.rc \
     device/lge/jagnm/rootdir/sbin/bbx:root/sbin/bbx \
-#   device/lge/jagnm/rootdir/fscheck.sh:root/fscheck.sh
+    device/lge/jagnm/rootdir/fscheck.sh:root/fscheck.sh
+
 
 # TWRP
 PRODUCT_COPY_FILES += \
