@@ -24,12 +24,12 @@
 USE_CAMERA_STUB := false
 TARGET_NO_BOOTLOADER := true
 
-TARGET_SPECIFIC_HEADER_PATH += device/lge/jagnm/include
+TARGET_SPECIFIC_HEADER_PATH += device/lge/jag3gds/include
 
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := device/lge/jagnm/init/init_jagnm.c
+TARGET_LIBINIT_DEFINES_FILE := device/lge/jag3gds/init/init_jag3gds.c
 
 # Platform
 TARGET_ARCH := arm
@@ -42,14 +42,14 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
-TARGET_BOOTLOADER_BOARD_NAME := d722
+TARGET_BOOTLOADER_BOARD_NAME := d724
 
 # Kernel image
 BOARD_KERNEL_SEPARATED_DT := true
-BOARD_CUSTOM_BOOTIMG_MK := device/lge/jagnm/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/lge/jag3gds/mkbootimg.mk
 TARGET_KERNEL_SOURCE := kernel/lge/msm8226
-TARGET_KERNEL_CONFIG := cm11_jagnm_defconfig
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 user_debug=31 msm_rtb.filter=0x37 androidboot.hardware=jagnm
+TARGET_KERNEL_CONFIG := cm11_jag3gds_defconfig
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 user_debug=31 msm_rtb.filter=0x37 androidboot.hardware=jag3gds
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x00000100
@@ -81,7 +81,7 @@ TARGET_QCOM_MEDIA_VARIANT := caf-new
 TARGET_NO_RPC := true
 
 # Graphics
-BOARD_EGL_CFG := device/lge/jagnm/prebuilt/egl.cfg
+BOARD_EGL_CFG := device/lge/jag3gds/prebuilt/egl.cfg
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 TARGET_QCOM_DISPLAY_VARIANT := caf-new
 USE_OPENGL_RENDERER := true
@@ -97,10 +97,10 @@ TARGET_USES_CPU_BOOST_HINT := true
 TARGET_HW_DISK_ENCRYPTION := true
 
 # Hardware tunables framework
-BOARD_HARDWARE_CLASS := device/lge/jagnm/cmhw/
+BOARD_HARDWARE_CLASS := device/lge/jag3gds/cmhw/
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/jagnm/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/jag3gds/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
@@ -154,7 +154,7 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 
 # TWRP Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_FSTAB := device/lge/jagnm/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/lge/jag3gds/recovery.fstab
 RECOVERY_FSTAB_VERSION := 2
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 DEVICE_RESOLUTION := 720x1280
@@ -180,12 +180,12 @@ TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_INCREMENTAL_OTA_VERBATIM_FILES := system/app/Provision.apk
 
 # Nfc
-BOARD_NFC_HAL_SUFFIX := jagnm
+BOARD_NFC_HAL_SUFFIX := jag3gds
 BOARD_NFC_CHIPSET := pn547
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
-	device/lge/jagnm/sepolicy
+	device/lge/jag3gds/sepolicy
 
 BOARD_SEPOLICY_UNION += \
 	adbd.te \
