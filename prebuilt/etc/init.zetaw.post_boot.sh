@@ -27,7 +27,6 @@
 #
 
 target=`getprop ro.board.platform`
-debuggable=`getprop ro.debuggable`
 case "$target" in
     "msm7201a_ffa" | "msm7201a_surf" | "msm7627_ffa" | "msm7627_6x" | "msm7627a"  | "msm7627_surf" | \
     "qsd8250_surf" | "qsd8250_ffa" | "msm7630_surf" | "msm7630_1x" | "msm7630_fusion" | "qsd8650a_st1x")
@@ -246,7 +245,10 @@ esac
 
 case "$target" in
     "msm8974")
-        echo 4 > /sys/module/lpm_levels/enable_low_power/l2
+        echo 2 > /sys/module/lpm_resources/enable_low_power/l2
+        echo 1 > /sys/module/lpm_resources/enable_low_power/pxo
+        echo 1 > /sys/module/lpm_resources/enable_low_power/vdd_dig
+        echo 1 > /sys/module/lpm_resources/enable_low_power/vdd_mem
         echo 1 > /sys/module/msm_pm/modes/cpu0/power_collapse/suspend_enabled
         echo 1 > /sys/module/msm_pm/modes/cpu1/power_collapse/suspend_enabled
         echo 1 > /sys/module/msm_pm/modes/cpu2/power_collapse/suspend_enabled
@@ -297,7 +299,6 @@ case "$target" in
                 echo 100000 > /sys/devices/system/cpu/cpufreq/interactive/sampling_down_factor
                 echo 1497600 > /sys/module/cpu_boost/parameters/input_boost_freq
                 echo 40 > /sys/module/cpu_boost/parameters/input_boost_ms
-                setprop ro.qualcomm.perf.cores_online 2
             ;;
             *)
                 echo "ondemand" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
@@ -338,7 +339,11 @@ esac
 
 case "$target" in
     "msm8226")
-        echo 4 > /sys/module/lpm_levels/enable_low_power/l2
+        echo 2 > /sys/module/lpm_resources/enable_low_power/l2
+        soc_revision=`cat /sys/devices/soc0/revision`
+        if [ "$soc_revision" != "1.0" ]; then
+                echo 1 > /sys/module/lpm_resources/enable_low_power/pxo
+        fi
         echo 1 > /sys/module/msm_pm/modes/cpu0/power_collapse/suspend_enabled
         echo 1 > /sys/module/msm_pm/modes/cpu1/power_collapse/suspend_enabled
         echo 1 > /sys/module/msm_pm/modes/cpu2/power_collapse/suspend_enabled
@@ -352,42 +357,22 @@ case "$target" in
         echo 1 > /sys/module/msm_pm/modes/cpu2/standalone_power_collapse/idle_enabled
         echo 1 > /sys/module/msm_pm/modes/cpu3/standalone_power_collapse/idle_enabled
         echo 1 > /sys/module/msm_pm/modes/cpu0/power_collapse/idle_enabled
-        echo 1 > /sys/module/msm_show_resume_irq/parameters/debug_mask
         echo 1 > /sys/devices/system/cpu/cpu1/online
         echo 1 > /sys/devices/system/cpu/cpu2/online
         echo 1 > /sys/devices/system/cpu/cpu3/online
-        echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-        echo "interactive" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
-        echo "interactive" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
-        echo "interactive" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
-        ### Quarx: AeroKernel Changes ###
-        echo 30000 1094000:40000 1190000:20000 > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-        echo 85 1094000:80 1190000:95 > /sys/devices/system/cpu/cpufreq/interactive/target_loads
-        echo 30000 1094000:20000 1190000:10000 > /sys/devices/system/cpu/cpufreq/interactive/timer_rate
-        echo 50000 1094000:30000 > /sys/devices/system/cpu/cpufreq/interactive/timer_slack+
-        #echo 20000 > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-        #echo 90 > /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
-        #echo 998000 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-        #echo 1 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-        #echo 90 > /sys/devices/system/cpu/cpufreq/interactive/target_loads
-        #echo 40000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
-        #echo 20 > /sys/module/cpu_boost/parameters/boost_ms
-        #echo 998000 > /sys/module/cpu_boost/parameters/sync_threshold
-        #echo 100000 > /sys/devices/system/cpu/cpufreq/interactive/sampling_down_factor
-        #echo 1094000 > /sys/module/cpu_boost/parameters/input_boost_freq
-        #echo 40 > /sys/module/cpu_boost/parameters/input_boost_ms
-        ### AeroKernel Changes End ###
+        echo "ondemand" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+        echo 50000 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
+        echo 90 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
+        echo 1 > /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
+        echo 2 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
+        echo 10 > /sys/devices/system/cpu/cpufreq/ondemand/down_differential
+        echo 70 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_multi_core
+        echo 10 > /sys/devices/system/cpu/cpufreq/ondemand/down_differential_multi_core
+        echo 787200 > /sys/devices/system/cpu/cpufreq/ondemand/optimal_freq
+        echo 300000 > /sys/devices/system/cpu/cpufreq/ondemand/sync_freq
+        echo 80 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_any_cpu_load
         echo 300000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-        echo 300000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-        echo 300000 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
-        echo 300000 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
         chown -h system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-        # add read permission to max cpu frequency interface
-        case "$debuggable" in
-            "1")
-                chmod -h 664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-            ;;
-        esac
         chown -h system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
         chown -h root.system /sys/devices/system/cpu/cpu1/online
         chown -h root.system /sys/devices/system/cpu/cpu2/online
@@ -400,7 +385,10 @@ esac
 
 case "$target" in
     "msm8610")
-        echo 4 > /sys/module/lpm_levels/enable_low_power/l2
+        echo 2 > /sys/module/lpm_resources/enable_low_power/l2
+        echo 1 > /sys/module/lpm_resources/enable_low_power/pxo
+        echo 1 > /sys/module/lpm_resources/enable_low_power/vdd_dig
+        echo 1 > /sys/module/lpm_resources/enable_low_power/vdd_mem
         echo 1 > /sys/module/msm_pm/modes/cpu0/power_collapse/suspend_enabled
         echo 1 > /sys/module/msm_pm/modes/cpu1/power_collapse/suspend_enabled
         echo 1 > /sys/module/msm_pm/modes/cpu2/power_collapse/suspend_enabled
@@ -414,7 +402,6 @@ case "$target" in
         echo 1 > /sys/module/msm_pm/modes/cpu2/standalone_power_collapse/idle_enabled
         echo 1 > /sys/module/msm_pm/modes/cpu3/standalone_power_collapse/idle_enabled
         echo 1 > /sys/module/msm_pm/modes/cpu0/power_collapse/idle_enabled
-        echo 1 > /sys/module/msm_show_resume_irq/parameters/debug_mask
         echo 1 > /sys/devices/system/cpu/cpu1/online
         echo 1 > /sys/devices/system/cpu/cpu2/online
         echo 1 > /sys/devices/system/cpu/cpu3/online
@@ -478,7 +465,6 @@ case "$target" in
         echo 300000 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
         echo 300000 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
         echo 1 > /sys/module/msm_thermal/core_control/enabled
-        setprop ro.qualcomm.perf.cores_online 2
         chown -h  system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
         chown -h system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
         chown -h root.system /sys/devices/system/cpu/mfreq
@@ -523,6 +509,23 @@ case "$emmc_boot"
         chown -h system /sys/devices/platform/rs300100a7.65536/sync_sts
     ;;
 esac
+
+# 2013-10-07 ct-radio@lge.com LGP_DATA_TCPIP_NSRM [START]
+targetProd=`getprop ro.product.name`
+case "$targetProd" in
+    "x3n_lgu_kr" | "x3n_skt_kr" | "jagn_skt_kr" | "jagn_lgu_kr" | "g2m_lgu_kr" | "f70n_lgu_kr" | "f70n_skt_kr" | "vfp_lgu_kr" | "jagnm_rgs_ca" | "jagnm_tls_ca" | "jagnm_vtr_ca" | "b2ln_lgu_kr")
+    mkdir /data/connectivity/
+    chown system.system /data/connectivity/
+    chmod 775 /data/connectivity/
+    mkdir /data/connectivity/nsrm/
+    chown system.system /data/connectivity/nsrm/
+    chmod 775 /data/connectivity/nsrm/
+    cp /system/etc/cne/NsrmConfiguration.xml /data/connectivity/nsrm/
+    chown system.system /data/connectivity/nsrm/NsrmConfiguration.xml
+    chmod 775 /data/connectivity/nsrm/NsrmConfiguration.xml
+    ;;
+esac
+# 2013-10-07 ct-radio@lge.com LGP_DATA_TCPIP_NSRM [END]
 
 case "$target" in
     "msm8960" | "msm8660" | "msm7630_surf")
@@ -601,9 +604,9 @@ if [ -f /data/prebuilt/AdrenoTest.apk ]; then
 fi
 
 # Install SWE_Browser.apk if not already installed
-if [ -f /data/prebuilt/SWE_AndroidBrowser.apk ]; then
-    if [ ! -d /data/data/com.android.swe.browser ]; then
-        pm install /data/prebuilt/SWE_AndroidBrowser.apk
+if [ -f /data/prebuilt/SWE_Browser.apk ]; then
+    if [ ! -d /data/data/org.codeaurora.swe.browser ]; then
+        pm install /data/prebuilt/SWE_Browser.apk
     fi
 fi
 
@@ -614,22 +617,4 @@ case "$target" in
         echo 0,1,2,4,9,12 > /sys/module/lowmemorykiller/parameters/adj
         echo 5120 > /proc/sys/vm/min_free_kbytes
      ;;
-esac
-
-case "$target" in
-    "msm8226" | "msm8974" | "msm8610" | "apq8084" | "mpq8092" | "msm8610")
-        # Let kernel know our image version/variant/crm_version
-        image_version="10:"
-        image_version+=`getprop ro.build.id`
-        image_version+=":"
-        image_version+=`getprop ro.build.version.incremental`
-        image_variant=`getprop ro.product.name`
-        image_variant+="-"
-        image_variant+=`getprop ro.build.type`
-        oem_version=`getprop ro.build.version.codename`
-        echo 10 > /sys/devices/soc0/select_image
-        echo $image_version > /sys/devices/soc0/image_version
-        echo $image_variant > /sys/devices/soc0/image_variant
-        echo $oem_version > /sys/devices/soc0/image_crm_version
-        ;;
 esac
