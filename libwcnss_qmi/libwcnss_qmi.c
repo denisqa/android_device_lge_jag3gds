@@ -16,7 +16,7 @@
 
 //#define LOG_NDEBUG 0
 
-#define LOG_TAG "wcnss_jagnm"
+#define LOG_TAG "wcnss_jag3gds"
 
 #include <cutils/log.h>
 #include <stdio.h>
