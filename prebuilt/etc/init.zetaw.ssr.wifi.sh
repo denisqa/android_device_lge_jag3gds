@@ -26,7 +26,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-ssr_str="$1"
+#ssr_str="$1"
+ssr_str=`getprop persist.sys.ssr.restart_level_w`
 IFS=,
 ssr_array=($ssr_str)
 declare -i subsys_mask=0
@@ -101,4 +102,3 @@ if [ $((subsys_mask & 8)) == 8 ]; then
 else
     echo "system" > /sys/bus/msm_subsys/devices/subsys2/restart_level
 fi
-
