@@ -75,8 +75,8 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
     UNUSED(msm_ver);
     UNUSED(board_type);
 
-    property_set("ro.product.device", "jagnm");
-    property_set("ro.product.model", "LG-D722");
+    property_set("ro.product.device", "jag3gds");
+    property_set("ro.product.model", "LG-D724");
     property_set("ro.nfc.port", "I2C");
     property_set("persist.radio.multisim.config", "");
     property_set("telephony.lteOnCdmaDevice", "1");
