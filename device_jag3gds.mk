@@ -19,7 +19,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Specific overlay
-DEVICE_PACKAGE_OVERLAYS += device/lge/jagnm/overlay
+DEVICE_PACKAGE_OVERLAYS += device/lge/jag3gds/overlay
 
 # recovery script
 
@@ -53,80 +53,80 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
-    device/lge/jagnm/prebuilt/etc/permissions/com.qualcomm.location.xml:system/etc/permissions/com.qualcomm.location.xml
+    device/lge/jag3gds/prebuilt/etc/permissions/com.qualcomm.location.xml:system/etc/permissions/com.qualcomm.location.xml
 
 # Configs
 PRODUCT_COPY_FILES += \
-    device/lge/jagnm/prebuilt/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    device/lge/jagnm/prebuilt/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    device/lge/jag3gds/prebuilt/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+    device/lge/jag3gds/prebuilt/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
     kernel/lge/msm8226/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     kernel/lge/msm8226/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
     kernel/lge/msm8226/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
-    device/lge/jagnm/prebuilt/etc/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin \
-    device/lge/jagnm/prebuilt/etc/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
-    device/lge/jagnm/prebuilt/etc/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
-    device/lge/jagnm/prebuilt/etc/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny \
-    device/lge/jagnm/prebuilt/etc/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
-    device/lge/jagnm/prebuilt/etc/audio_policy.conf:system/etc/audio_policy.conf \
-    device/lge/jagnm/prebuilt/etc/audio_effects.conf:system/etc/audio_effects.conf \
-    device/lge/jagnm/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml \
-    device/lge/jagnm/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    device/lge/jagnm/prebuilt/etc/mixer_paths.xml:system/etc/mixer_paths.xml \
-    device/lge/jagnm/prebuilt/etc/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf \
-    device/lge/jagnm/prebuilt/usr/idc/touch_dev.idc:system/usr/idc/touch_dev.idc \
-    device/lge/jagnm/prebuilt/usr/keylayout/gpio-keys_d410.kl:system/usr/keylayout/gpio-keys_d410.kl \
-    device/lge/jagnm/prebuilt/etc/init.zetaw.fm.sh:system/etc/init.zetaw.fm.sh \
-    device/lge/jagnm/prebuilt/etc/init.zetaw.ssr.wifi.sh:system/etc/init.zetaw.ssr.wifi.sh \
-    device/lge/jagnm/prebuilt/etc/init.zetaw.wifi.sh:system/etc/init.zetaw.wifi.sh \
-    device/lge/jagnm/prebuilt/etc/init.crda.sh:system/etc/init.crda.sh \
-    device/lge/jagnm/prebuilt/etc/init.zetaw.post_boot.sh:system/etc/init.zetaw.post_boot.sh \
-    device/lge/jagnm/prebuilt/etc/sap.conf:system/etc/sap.conf \
-    device/lge/jagnm/prebuilt/etc/gps.conf:system/etc/gps.conf \
-    device/lge/jagnm/prebuilt/etc/msap.conf:system/etc/msap.conf \
-    device/lge/jagnm/prebuilt/etc/clatd.conf:system/etc/clatd.conf \
-    device/lge/jagnm/prebuilt/etc/sec_config:system/etc/sec_config \
-    device/lge/jagnm/prebuilt/etc/izat.conf:system/etc/izat.conf \
-    device/lge/jagnm/prebuilt/etc/boot_fixup:system/etc/boot_fixup \
-    device/lge/jagnm/prebuilt/etc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-    device/lge/jagnm/prebuilt/etc/nfc-nci.conf:system/etc/nfc-nci.conf \
-    device/lge/jagnm/prebuilt/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
-    device/lge/jagnm/prebuilt/etc/nfcee_access.xml:system/etc/nfcee_access.xml \
-    device/lge/jagnm/prebuilt/etc/quipc.conf:system/etc/quipc.conf 
-#    device/lge/jagnm/prebuilt/etc/init.d/10nfc_checker:system/etc/init.d/10nfc_checker \
-#    device/lge/jagnm/prebuilt/etc/init.d/11keys_checker:system/etc/init.d/11keys_checker
+    device/lge/jag3gds/prebuilt/etc/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin \
+    device/lge/jag3gds/prebuilt/etc/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
+    device/lge/jag3gds/prebuilt/etc/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
+    device/lge/jag3gds/prebuilt/etc/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny \
+    device/lge/jag3gds/prebuilt/etc/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
+    device/lge/jag3gds/prebuilt/etc/audio_policy.conf:system/etc/audio_policy.conf \
+    device/lge/jag3gds/prebuilt/etc/audio_effects.conf:system/etc/audio_effects.conf \
+    device/lge/jag3gds/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml \
+    device/lge/jag3gds/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
+    device/lge/jag3gds/prebuilt/etc/mixer_paths.xml:system/etc/mixer_paths.xml \
+    device/lge/jag3gds/prebuilt/etc/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf \
+    device/lge/jag3gds/prebuilt/usr/idc/touch_dev.idc:system/usr/idc/touch_dev.idc \
+    device/lge/jag3gds/prebuilt/usr/keylayout/gpio-keys_d410.kl:system/usr/keylayout/gpio-keys_d410.kl \
+    device/lge/jag3gds/prebuilt/etc/init.zetaw.fm.sh:system/etc/init.zetaw.fm.sh \
+    device/lge/jag3gds/prebuilt/etc/init.zetaw.ssr.wifi.sh:system/etc/init.zetaw.ssr.wifi.sh \
+    device/lge/jag3gds/prebuilt/etc/init.zetaw.wifi.sh:system/etc/init.zetaw.wifi.sh \
+    device/lge/jag3gds/prebuilt/etc/init.crda.sh:system/etc/init.crda.sh \
+    device/lge/jag3gds/prebuilt/etc/init.zetaw.post_boot.sh:system/etc/init.zetaw.post_boot.sh \
+    device/lge/jag3gds/prebuilt/etc/sap.conf:system/etc/sap.conf \
+    device/lge/jag3gds/prebuilt/etc/gps.conf:system/etc/gps.conf \
+    device/lge/jag3gds/prebuilt/etc/msap.conf:system/etc/msap.conf \
+    device/lge/jag3gds/prebuilt/etc/clatd.conf:system/etc/clatd.conf \
+    device/lge/jag3gds/prebuilt/etc/sec_config:system/etc/sec_config \
+    device/lge/jag3gds/prebuilt/etc/izat.conf:system/etc/izat.conf \
+    device/lge/jag3gds/prebuilt/etc/boot_fixup:system/etc/boot_fixup \
+    device/lge/jag3gds/prebuilt/etc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
+    device/lge/jag3gds/prebuilt/etc/nfc-nci.conf:system/etc/nfc-nci.conf \
+    device/lge/jag3gds/prebuilt/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
+    device/lge/jag3gds/prebuilt/etc/nfcee_access.xml:system/etc/nfcee_access.xml \
+    device/lge/jag3gds/prebuilt/etc/quipc.conf:system/etc/quipc.conf 
+#    device/lge/jag3gds/prebuilt/etc/init.d/10nfc_checker:system/etc/init.d/10nfc_checker \
+#    device/lge/jag3gds/prebuilt/etc/init.d/11keys_checker:system/etc/init.d/11keys_checker
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    device/lge/jagnm/rootdir/fstab_f2fs.jagnm:root/fstab_f2fs.jagnm \
-    device/lge/jagnm/rootdir/fstab.jagnm:root/fstab.jagnm \
-    device/lge/jagnm/rootdir/init.class_main.sh:root/init.class_main.sh \
-    device/lge/jagnm/rootdir/init.lge.early.rc:root/init.lge.early.rc \
-    device/lge/jagnm/rootdir/init.lge.rc:root/init.lge.rc \
-    device/lge/jagnm/rootdir/init.mdm.sh:root/init.mdm.sh \
-    device/lge/jagnm/rootdir/init.usb.rc:root/init.usb.rc \
-    device/lge/jagnm/rootdir/init.jagnm.rc:root/init.jagnm.rc \
-    device/lge/jagnm/rootdir/init.jagnm.usb.rc:root/init.jagnm.usb.rc \
-    device/lge/jagnm/rootdir/init.jagnm_product.rc:root/init.jagnm_product.rc \
-    device/lge/jagnm/rootdir/init.zetaw.bt_vendor.rc:root/init.zetaw.bt_vendor.rc \
-    device/lge/jagnm/rootdir/init.zetaw.class_core.sh:root/init.zetaw.class_core.sh \
-    device/lge/jagnm/rootdir/init.zetaw.cmm.usb.sh:root/init.zetaw.cmm.usb.sh \
-    device/lge/jagnm/rootdir/init.zetaw.early_boot.sh:root/init.zetaw.early_boot.sh \
-    device/lge/jagnm/rootdir/init.zetaw.factory.sh:root/init.zetaw.factory.sh \
-    device/lge/jagnm/rootdir/init.zetaw.rc:root/init.zetaw.rc \
-    device/lge/jagnm/rootdir/init.zetaw.ril.sh:root/init.zetaw.ril.sh \
-    device/lge/jagnm/rootdir/init.zetaw.sh:root/init.zetaw.sh \
-    device/lge/jagnm/rootdir/init.zetaw.ssr.sh:root/init.zetaw.ssr.sh \
-    device/lge/jagnm/rootdir/init.zetaw.syspart_fixup.sh:root/init.zetaw.syspart_fixup.sh \
-    device/lge/jagnm/rootdir/init.zetaw.usb.rc:root/init.zetaw.usb.rc \
-    device/lge/jagnm/rootdir/init.zetaw.usb.sh:root/init.zetaw.usb.sh \
-    device/lge/jagnm/rootdir/ueventd.jagnm.rc:root/ueventd.jagnm.rc \
-    device/lge/jagnm/rootdir/sbin/bbx:root/sbin/bbx \
-    device/lge/jagnm/rootdir/fscheck.sh:root/fscheck.sh
+    device/lge/jag3gds/rootdir/fstab_f2fs.jag3gds:root/fstab_f2fs.jag3gds \
+    device/lge/jag3gds/rootdir/fstab.jag3gds:root/fstab.jag3gds \
+    device/lge/jag3gds/rootdir/init.class_main.sh:root/init.class_main.sh \
+    device/lge/jag3gds/rootdir/init.lge.early.rc:root/init.lge.early.rc \
+    device/lge/jag3gds/rootdir/init.lge.rc:root/init.lge.rc \
+    device/lge/jag3gds/rootdir/init.mdm.sh:root/init.mdm.sh \
+    device/lge/jag3gds/rootdir/init.usb.rc:root/init.usb.rc \
+    device/lge/jag3gds/rootdir/init.jag3gds.rc:root/init.jag3gds.rc \
+    device/lge/jag3gds/rootdir/init.jag3gds.usb.rc:root/init.jag3gds.usb.rc \
+    device/lge/jag3gds/rootdir/init.jag3gds_product.rc:root/init.jag3gds_product.rc \
+    device/lge/jag3gds/rootdir/init.zetaw.bt_vendor.rc:root/init.zetaw.bt_vendor.rc \
+    device/lge/jag3gds/rootdir/init.zetaw.class_core.sh:root/init.zetaw.class_core.sh \
+    device/lge/jag3gds/rootdir/init.zetaw.cmm.usb.sh:root/init.zetaw.cmm.usb.sh \
+    device/lge/jag3gds/rootdir/init.zetaw.early_boot.sh:root/init.zetaw.early_boot.sh \
+    device/lge/jag3gds/rootdir/init.zetaw.factory.sh:root/init.zetaw.factory.sh \
+    device/lge/jag3gds/rootdir/init.zetaw.rc:root/init.zetaw.rc \
+    device/lge/jag3gds/rootdir/init.zetaw.ril.sh:root/init.zetaw.ril.sh \
+    device/lge/jag3gds/rootdir/init.zetaw.sh:root/init.zetaw.sh \
+    device/lge/jag3gds/rootdir/init.zetaw.ssr.sh:root/init.zetaw.ssr.sh \
+    device/lge/jag3gds/rootdir/init.zetaw.syspart_fixup.sh:root/init.zetaw.syspart_fixup.sh \
+    device/lge/jag3gds/rootdir/init.zetaw.usb.rc:root/init.zetaw.usb.rc \
+    device/lge/jag3gds/rootdir/init.zetaw.usb.sh:root/init.zetaw.usb.sh \
+    device/lge/jag3gds/rootdir/ueventd.jag3gds.rc:root/ueventd.jag3gds.rc \
+    device/lge/jag3gds/rootdir/sbin/bbx:root/sbin/bbx \
+    device/lge/jag3gds/rootdir/fscheck.sh:root/fscheck.sh
 
 
 # TWRP
 PRODUCT_COPY_FILES += \
-    device/lge/jagnm/rootdir/twrp.fstab:recovery/root/etc/twrp.fstab
+    device/lge/jag3gds/rootdir/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -235,7 +235,7 @@ PRODUCT_PACKAGES += \
 
 # EGL config
 PRODUCT_COPY_FILES += \
-    device/lge/jagnm/prebuilt/egl.cfg:system/lib/egl/egl.cfg
+    device/lge/jag3gds/prebuilt/egl.cfg:system/lib/egl/egl.cfg
 
 # Opengles version 3
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -370,10 +370,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
-    nfc_nci.jagnm \
+    nfc_nci.jag3gds \
     com.android.nfc_extras
 
-NFCEE_ACCESS_PATH := device/lge/jagnm/prebuilt/etc/nfcee_access.xml
+NFCEE_ACCESS_PATH := device/lge/jag3gds/prebuilt/etc/nfcee_access.xml
 
 # QC time services
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -390,5 +390,5 @@ PRODUCT_LOCALES += hdpi
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
-$(call inherit-product, vendor/lge/jagnm/jagnm-vendor.mk)
+$(call inherit-product, vendor/lge/jag3gds/jag3gds-vendor.mk)
 
