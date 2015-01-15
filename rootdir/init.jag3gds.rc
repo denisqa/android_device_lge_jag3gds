@@ -1,6 +1,6 @@
 import /init.zetaw.rc
-import /init.jagnm.usb.rc
-import /init.jagnm_product.rc
+import /init.jag3gds.usb.rc
+import /init.jag3gds_product.rc
 
 on early-init
     mkdir /firmware 0771 system system
@@ -16,7 +16,7 @@ on init
     stop ril-daemon
 
 on fs
-    mount_all fstab.jagnm
+    mount_all fstab.jag3gds
    
     # Executing tune2fs to reserve some region in /data. (40MB)
     exec /system/bin/tune2fs -u system -r 10240 /dev/block/platform/msm_sdcc.1/by-name/userdata
