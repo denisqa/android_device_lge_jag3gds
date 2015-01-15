@@ -16,11 +16,11 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, device/lge/jagnm/device_jagnm.mk)
+$(call inherit-product, device/lge/jag3gds/device_jag3gds.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := jagnm
-PRODUCT_NAME := full_jagnm
+PRODUCT_DEVICE := jag3gds
+PRODUCT_NAME := full_jag3gds
 PRODUCT_BRAND := lge
-PRODUCT_MODEL := jagnm
+PRODUCT_MODEL := jag3gds
 PRODUCT_MANUFACTURER := LGE
